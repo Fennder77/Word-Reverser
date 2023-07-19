@@ -1,27 +1,26 @@
-def reverse_words(sentence):# строка, разбивает предложение на слова, переворачивает  слово и возвращает
-    words = sentence.split()  # предложение на слова
-    reversed_words = [word[::-1] for word in words]  # Реверс слов
-    reversed_sentence = ' '.join(reversed_words)  # Соединяем перевернутые слова
+def reverse_words(sentence):# string, splits the sentence into words, reverses the word, and returns
+    words = sentence.split()  # sentence for words
+    reversed_words = [word[::-1] for word in words]  # Reverse words
+    reversed_sentence = ' '.join(reversed_words)  # Putting upside down words
     return reversed_sentence
 
-def count_vowels(sentence):# строка, подсчитывает количество вхождений каждой гласной и возвращает словарь
-    vowels = ['a', 'о', 'и', 'ы', 'у', 'э']#словарь глачных
-    vowel_count = {vowel: 0 for vowel in vowels}  #словарь для подсчета гласных
+def count_vowels(sentence):# string, counts the number of occurrences of each vowel and returns a dictionary
+    vowels = ['a', 'e', 'i', 'o', 'u', 'y']#vowel dictionary
+    vowel_count = {vowel: 0 for vowel in vowels}  #vowel counting dictionary
     for char in sentence:
-        if char.lower() in vowels:  # символ гласный?
-            vowel_count[char.lower()] += 1  # Увеличиваем счетчик гласной
+        if char.lower() in vowels:  # vowel symbol?
+            vowel_count[char.lower()] += 1  #Increasing the vowel counter
     return vowel_count
 
-# пользователь
-sentence = input("Введите предложение: ")
+sentence = input("Enter text: ")
 
-# Переворачиваем
+# Revers
 reversed_sentence = reverse_words(sentence)
-print("Перевернутые слова:", reversed_sentence)
+print("Revers words:", reversed_sentence)
 
-# Подсчитываем гласных в предложение
+# Counting vowels in a sentence
 vowel_count = count_vowels(sentence)
-print("Количество гласных:")
+print("Number of vowels:")
 for vowel, count in vowel_count.items():
     print(vowel, ":", count)
 
